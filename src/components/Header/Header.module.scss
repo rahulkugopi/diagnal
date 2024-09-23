@@ -1,28 +1,93 @@
 @import '../../App.scss';
 
-.header{
+.header {
     width: 100%;
+    min-height: 80px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 5px;
-    background-color: red;
+    padding: 20px 15px;
 
-    .innerLeft{
+    .innerLeft {
         width: 100%;
         display: flex;
-        align-items: center;        
+        align-items: center;
         gap: 25px;
 
-        h2{
+        .arrow {
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+        }
+
+        h2 {
             margin: 0;
             font-weight: 500;
+            font-size: 18px;
         }
     }
 
-    .innerRight{
+    .innerRight {
         width: 100%;
         display: flex;
         justify-content: end;
+        align-items: center;
+        gap: 15px;
+
+        .searchView {
+            width: 100%;
+
+            input {
+                width: 100%;
+                height: 36px;
+                padding: 0 10px;
+                font-size: 16px;
+            }
+        }
+
+        .search,
+        .searchCloseBtn {
+            width: 35px;
+            height: 20px;
+            cursor: pointer;
+            background-color: transparent;
+            border: 0;
+        }
+
+        .searchCloseBtn {
+            display: none;
+        }
     }
+}
+
+@media (max-width: 992px) {
+    .header {
+
+        .innerLeft {
+            h2 {
+                font-size: 14px;
+            }
+        }
+
+        .innerRight {
+            width: 35px;
+
+            .searchView {
+                width: 100%;
+                height: 60px;
+                background-color: $primary-color;
+                padding: 10px 15px;
+                position: absolute;
+                top: 10px;
+                left: 0;
+                display: flex;
+                align-items: center;
+
+                .searchCloseBtn {
+                    display: block;
+                }
+            }
+        }
+    }
+
 }
