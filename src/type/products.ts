@@ -4,7 +4,7 @@ export interface ProductsType {
     error: boolean;
 }
 
-export interface ProductList {
+export interface ProductListType {
     name: string;
     'poster-image': string;
 }

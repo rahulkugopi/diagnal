@@ -4,8 +4,6 @@ import Header from '../../components/Header/Header';
 import { useDispatch, useSelector } from 'react-redux';
 import { ProductsType } from '../../type/products';
 import { fetchProducts } from '../../redux/slice/products';
-import { ErrorBoundary } from 'react-error-boundary';
-import ErrorFallBack from '../../components/ErrorBoundary/ErrorBoundary';
 import Loader from '../../svgs/Loader';
 
 const ProductsList = React.lazy(() => import("../../components/ProductsList/ProductsList"))
@@ -20,12 +18,10 @@ function Dashboard() {
 
     return (
         <div className={styles.main}>
-            <Header data={state} />
-            <ErrorBoundary FallbackComponent={ErrorFallBack} onReset={(e) => { }}>
-                <Suspense fallback={<div><Loader /></div>}>
-                    <ProductsList data={state} />                  
-                </Suspense>
-            </ErrorBoundary>           
+            <Suspense fallback={<div><Loader /></div>}>
+                <Header />
+                <ProductsList />
+            </Suspense>
         </div>
     )
 }

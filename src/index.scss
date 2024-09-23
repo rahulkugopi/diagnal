@@ -1,7 +1,7 @@
 @import './App.scss';
 @import "@fontsource/titillium-web";
 
-*{
+* {
   box-sizing: border-box;
 }
 
@@ -11,3 +11,11 @@ body {
   font-family: $font-family;
 }
 
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FF0000;
+}
