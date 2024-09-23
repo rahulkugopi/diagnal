@@ -9,8 +9,8 @@ const INITIAL_STATE = {
     allDetails: []
 }
 
-export const fetchProducts = createAsyncThunk('fetchProducts', async () => {
-    const response = await instance.get('data/page1.json');
+export const fetchProducts = createAsyncThunk('fetchProducts', async (page:any) => {
+    const response = await instance.get(`data/page${page}.json`);
     return response.data.page;
 });
 
@@ -35,7 +35,7 @@ const productSlice = createSlice({
         }, action: { payload: any; }) => {
             state.isLoading = false;
             state.productList = action.payload['content-items'].content;
-            state.filteredItems = action.payload['content-items'].content;
+            state.filteredItems.push(...action.payload['content-items'].content);
             state.allDetails = action.payload;
         });
 
